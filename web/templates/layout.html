@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="static/img/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700"/>
+    <link rel="stylesheet" href="static/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/templatemo-style.css">
+
+  </head>
+
+
+  <body>
+    <div>
+      <nav class="navbar navbar-expand-xl">
+        <div class="container h-100">
+          <a class="navbar-brand" href="index.html">
+            <h1 class="tm-site-title mb-0"> <img src="static/img/favicon.png" style="height: 65px"> SENTIMENTAL ANALYSIS OF TWITTER</h1>
+          </a>
+          <button
+            class="navbar-toggler ml-auto mr-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars tm-nav-icon"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto h-100">
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  <i class="fas fa-tachometer-alt"></i> Dashboard
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            
+
+              <li class="nav-item">
+                <a class="nav-link" href="/About">
+                  <i class="far fa-user"></i> About us
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+{% block body %}{% endblock %}
+
+
+<footer class="tm-footer row tm-mt-small">
+      <div class="col-12 font-weight-light">
+        <p class="text-center text-white mb-0 px-4 small">
+          
+        </p>
+      </div>
+    </footer>
+    <script src="static/js/jquery-3.3.1.min.js"></script>
+    <script src="static/js/moment.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/tooplate-scripts.js"></script>
+  </body>
+</html>

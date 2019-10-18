@@ -1,0 +1,75 @@
+  {% extends "layout.html" %}
+    {% block title %}ANALYSIS REPORT{% endblock %}
+    {% block body %}
+    <script type="text/javascript">
+window.onload = function () {
+  var chart = new CanvasJS.Chart("chartContainer",
+  {
+    title:{
+      text: "Analyzation of {{piedata[7]}} at {{piedata[8]}} no. of tweets"
+    },
+    legend: {
+      maxWidth: 350,
+      itemWidth: 120
+    },
+    data: [
+    {
+      // piedata={0positive,1wpositive,2spositive,3negative,4wnegative,5snegative,6neutral,7searchTerm,8NoOfTerms,9general_report}
+      type: "pie",
+      showInLegend: true,
+      legendText: "{indexLabel}",
+      dataPoints: [
+        { y: {{piedata[2]}}, indexLabel: "Strongly Positive" },
+        { y: {{piedata[0]}}, indexLabel: "Positive" },
+        { y: {{piedata[1]}}, indexLabel: "Weakly Positive" },
+        { y: {{piedata[6]}}, indexLabel: "Neutral"},
+        { y: {{piedata[4]}}, indexLabel: "Weakly Negative" },
+        { y: {{piedata[3]}}, indexLabel: "Negative"},
+        { y: {{piedata[5]}}, indexLabel: "Strongly Negative" }
+       
+      ]
+    }
+    ]
+  });
+  chart.render();
+}
+</script>
+    <script type="text/javascript" src="/static/js/canvasjs.min.js"></script>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-white mt-5 mb-5"><b>ANALYSIS REPORT</b></p>
+                </div>
+            </div>
+            <!-- <div id="chartContainer" style="height: 100; width: 100%;"></div> -->
+            <!-- row -->
+             <div class="row tm-content-row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block tm-block-taller" style="height: 435px; background-color: #fff;">
+                        <h2 class="tm-block-title" style="color: #6b6a6a;">Graphical View</h2>                            
+                            <div id="chartContainer" style="height: 80%; width: 100%;"></div>
+                        </div>                        
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block" style=" background-color: #fff;">
+                        <h2 class="tm-block-title" style="color: #6b6a6a;"><u>General Report</u></h2>
+                        <div style="color: #8a8a8a;">How people are reacting on <strong>{{piedata[7]}}</strong> by analyzing <strong>{{piedata[8]}}</strong> tweets.<br/>
+                        <strong>{{piedata[9]}}</strong>
+                      </div>
+                          <hr>
+                        <h2 class="tm-block-title" style="color: #6b6a6a;"><u>Detailed Report</u></h2>
+                        <div style="color:#c0504e"><strong>{{piedata[0]}}%</strong> people thought it was positive</div>
+                        <div style="color:#9bbb58"><strong>{{piedata[1]}}%</strong> people thought it was weakly positive</div>
+                        <div style="color:#4f81bc"><strong>{{piedata[2]}}%</strong> people thought it was strongly positive</div>
+                        <div style="color:#4aacc5"><strong>{{piedata[3]}}%</strong> people thought it was negative</div>
+                        <div style="color:#8064a1"><strong>{{piedata[4]}}%</strong> people thought it was weakly negative</div>
+                        <div style="color:#f79647"><strong>{{piedata[5]}}%</strong> people thought it was strongly negative</div>
+                        <div style="color:#23bfaa"><strong>{{piedata[6]}}%</strong> people thought it was neutral</div>
+
+                        
+                    </div>  
+                </div>
+              </div>
+        </div>
+     
+         {% endblock %}
